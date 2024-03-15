@@ -33,3 +33,8 @@ python q1_line.py
 
 步驟都執行後，作為示範，統計的數量會顯示在第二個命令提示字元
 Once scripts is running, the ouput on cmd #2 demonstrates how to get the sum of the numbers.
+
+# Docker 
+
+在docker內執行程式，輸入`docker compose up`，可看到Modbus client的輸出。
+Run applicaton in docker by executing `docker compose up`, then Modbus client output shows

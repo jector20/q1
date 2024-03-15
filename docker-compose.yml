@@ -1,0 +1,24 @@
+version: '3'
+services:
+  modbus_server:
+    build: 
+      dockerfile: server.Dockerfile
+    ports:
+      - "502"
+    container_name: modbus_server
+    environment:
+      - MODBUS_SERVER=modbus_server
+
+  modbus_line:
+    build: 
+      dockerfile: line.Dockerfile
+    container_name: modbus_line
+    environment:
+      - MODBUS_SERVER=modbus_server
+
+  modbus_client:
+    build: 
+      dockerfile: client.Dockerfile
+    container_name: modbus_client
+    environment:
+      - MODBUS_SERVER=modbus_server
