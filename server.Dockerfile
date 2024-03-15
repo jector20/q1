@@ -7,7 +7,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY q1_server.py /app
 
-CMD [ "python", "q1_server.py" ]
+CMD [ "python", "-u", "q1_server.py" ]
 
 
 
