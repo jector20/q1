@@ -4,6 +4,7 @@ from pymodbus.datastore import ModbusSparseDataBlock
 from pymodbus.device import ModbusDeviceIdentification
 import asyncio
 import os
+import logging
 
 
 id = ModbusDeviceIdentification(info_name={"VendorName": "test",
@@ -21,8 +22,7 @@ async def Device(context, id):
     await server.serve_forever()
     
 async def Server(id):
-    #context = ModbusSlaveContext(hr=ModbusSparseDataBlock({40001: 100, 40003: 99, 40005: 98, 40007: 97, 40009: 96, 40011: 95}), zero_mode=True)
-    context = ModbusSlaveContext(hr=ModbusSparseDataBlock({40001: 0, 40003: 1, 40005: 0, 40007: 1, 40009: 0, 40011: 0}), zero_mode=True)
+    context = ModbusSlaveContext(hr=ModbusSparseDataBlock({40001: 0, 40003: 0, 40005: 0, 40007: 0, 40009: 0, 40011: 0}), zero_mode=True)
     context = ModbusServerContext(slaves=context, single=True)
 
     async with asyncio.TaskGroup() as tg:
